@@ -3,7 +3,7 @@ import { z } from "zod";
 import prisma from "@/prisma/client";
 
 const taskCreationSchema = z.object({
-    title: z.string().min(1).max(255),
+    title: z.string().min(1, 'Please enter task title.').max(255, 'Why are you doing this?'),
 })
 
 export async function POST(request: NextRequest) {
